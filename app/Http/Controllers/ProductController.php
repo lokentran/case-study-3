@@ -73,7 +73,10 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $categories = Category::all();
+        $stores = Store::all();
+        $product = $this->productService->getById($id);
+        return view('backend.product.edit',compact('product','categories','stores'));
     }
 
     /**
@@ -84,8 +87,9 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+    {   
+        $this->productService->update($request, $id);
+        return redirect()->route('products.index');
     }
 
     /**

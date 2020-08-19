@@ -33,4 +33,18 @@ class ProductService {
         $product->stores()->sync($request->store);
     }
 
+    public function update($request, $id) {
+        $product = $this->productRepo->getById($id);
+        $product->fill($request->all());
+        if($request->hasFile('image')) {
+            $image = $request->file('image');
+            $path = $image->store('images','public');
+            $product->img = $path;
+        }
+
+        $this->productRepo->save($product);
+        $product->stores()->sync($request->store);
+    }
+
 }
+

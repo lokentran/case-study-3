@@ -34,7 +34,7 @@
                                 <p>{{ $store->name }}</p>
                             @endforeach
                         </td>
-                        <td></td>
+                        <td><a href="{{ route('products.edit', $product->id) }}" class="btn btn-primary">Edit</a></td>
                     </tr>
                 @empty
                     <tr>
@@ -42,6 +42,9 @@
                     </tr>
                 @endforelse
        
+
+
+
 
 
             </tbody>
