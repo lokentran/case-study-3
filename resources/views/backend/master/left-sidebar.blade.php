@@ -59,8 +59,8 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-rocket"></i>Products</a>
-                        <div id="submenu-2" class="collapse submenu" style="">
+                        <a class="nav-link" href="{{ route('categories.index') }}" ><i class="fa fa-fw fa-rocket"></i>Danh mục</a>
+                        {{-- <div id="submenu-2" class="collapse submenu" style="">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
                                     <a class="nav-link" href="pages/cards.html">Add<span class="badge badge-secondary">New</span></a>
@@ -73,7 +73,7 @@
                                 </li>
                             
                             </ul>
-                        </div>
+                        </div> --}}
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="fas fa-fw fa-chart-pie"></i>Chart</a>

@@ -19,8 +19,14 @@
                         <td>{{ ++$key }}</td>
                         <td>{{ $category->name }}</td>
                         <td>{{ $category->vendor }}</td>
-                        <td><a href="{{ route('categories.edit', $category->id) }}">Edit</a></td>
-                        <td><a href="{{ route('categories.destroy', $category->id) }}">Delete</a></td>
+                        <td><a class="btn btn-primary" href="{{ route('categories.edit', $category->id) }}">Edit</a></td>
+                        <td>
+                            <form action="{{ route('categories.destroy', $category->id) }}" method="post">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
                     </tr>
                 @empty
                     <tr>
