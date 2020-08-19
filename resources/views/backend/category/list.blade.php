@@ -1,8 +1,9 @@
 @extends('backend.master.master')
 @section('title','Danh mục')
 @section('content')
-    <div class="container-fluid">
-        <table class="table table-striped" >
+    <div class="container-fluid mt-5">
+        <a class="btn btn-secondary mb-3" href="{{ route('categories.create') }}">Add Category</a>
+        <table class="table table-striped " >
             <thead>
                 <tr>
                     <th>Số TT</th>
