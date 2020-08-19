@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="container-fluid mt-5">
-        <a class="btn btn-secondary" href="{{ route('productsgit.create') }}">Thêm sản phẩm</a>
+        <a class="btn btn-secondary" href="{{ route('products.create') }}">Thêm sản phẩm</a>
         <table class="table table-striped" >
             <thead>
                 <tr>
@@ -26,9 +26,14 @@
                         <td>{{ ++$key }}</td>
                         <td><img src="{{ asset('/storage/'.$product->img) }}" alt=""></td>
                         <td>{{ $product->name }}</td>
+                        <td>{{ $product->price }}</td>
                         <td>{{ $product->description }}</td>
                         <td>{{ $product->category->name }}</td>
-                        <td></td>
+                        <td>
+                            @foreach ($product->stores as $store)
+                                <p>{{ $store->name }}</p>
+                            @endforeach
+                        </td>
                         <td></td>
                     </tr>
                 @empty

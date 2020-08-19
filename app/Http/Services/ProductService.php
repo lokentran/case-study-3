@@ -2,7 +2,7 @@
 namespace App\Http\Services;
 
 use App\Http\Repositories\ProductRepo;
-use App\Http\Models\Product;
+use App\Models\Product;
 
 class ProductService {
     protected $productRepo;
@@ -20,6 +20,17 @@ class ProductService {
         return $this->productRepo->getById($id);
     }
 
+    public function add($request) {
+        $product = new Product();
+        $product->fill($request->all());
+        if($request->hasFile('image')) {
+            $image = $request->file('image');
+            $path = $image->store('images','public');
+            $product->img = $path;
+        }
 
+        $this->productRepo->save($product);
+        $product->stores()->sync($request->store);
+    }
 
 }

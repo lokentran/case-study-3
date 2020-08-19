@@ -36,8 +36,10 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {   
+        $categories = Category::all();
+        $stores = Store::all();
+        return view('backend.product.add',compact('categories','stores'));
     }
 
     /**
@@ -48,7 +50,8 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->productService->add($request);
+        return redirect()->route('products.index');
     }
 
     /**
