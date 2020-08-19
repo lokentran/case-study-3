@@ -46,7 +46,9 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->categoryService->add($request);
+        // dd($request->all());
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -68,7 +70,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = $this->categoryService->getById($id);
+        return view('backend.category.edit', compact('category'));
     }
 
     /**
@@ -80,7 +83,8 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->categoryService->update($request,$id);
+        return redirect()->route('categories.store');
     }
 
     /**
@@ -91,6 +95,6 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+    
     }
 }

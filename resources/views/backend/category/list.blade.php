@@ -19,7 +19,8 @@
                         <td>{{ ++$key }}</td>
                         <td>{{ $category->name }}</td>
                         <td>{{ $category->vendor }}</td>
-                        
+                        <td><a href="{{ route('categories.edit', $category->id) }}">Edit</a></td>
+                        <td><a href="{{ route('categories.destroy', $category->id) }}">Delete</a></td>
                     </tr>
                 @empty
                     <tr>

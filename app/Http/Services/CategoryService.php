@@ -32,6 +32,7 @@ class CategoryService {
         $editProduct = $this->categoryRepo->getById($id);
         $editProduct->name = $request->name;
         $editProduct->vendor = $request->vendor;
+        // dd($request->all());
         $this->categoryRepo->save($editProduct);
     }
 
