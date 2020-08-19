@@ -34,7 +34,7 @@ class StoreController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.store.add');
     }
 
     /**
@@ -45,7 +45,8 @@ class StoreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->storeService->add($request);
+        return redirect()->route('stores.index');
     }
 
     /**
@@ -66,8 +67,9 @@ class StoreController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {   
+        $store = $this->storeService->getById($id);
+        return view('backend.store.edit',compact('store'));
     }
 
     /**
@@ -79,8 +81,9 @@ class StoreController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+        $this->storeService->update($request,$id);
+        return \redirect()->route('stores.store');
+    }   
 
     /**
      * Remove the specified resource from storage.
@@ -90,6 +93,6 @@ class StoreController extends Controller
      */
     public function destroy($id)
     {
-        //
+     
     }
 }
