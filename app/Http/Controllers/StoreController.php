@@ -93,6 +93,7 @@ class StoreController extends Controller
      */
     public function destroy($id)
     {
-     
+        $this->storeService->delete($id);
+        return \redirect()->route('stores.store');
     }
 }
